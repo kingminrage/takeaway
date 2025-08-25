@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Smash & Go — Hambúrgueres e Refeições • Take Away</title>
+  <meta name="description" content="Hambúrgueres suculentos & refeições prontas para levar. Ingredientes frescos, pão artesanal e molhos da casa. Encomende pelo WhatsApp e levante sem filas." />
+  <style>
+    * {margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;}
+    :root{--brand:#e63946;--bg:#faf8f6;--card:#ffffff;--muted:#6b6b6b}
+    body {background: var(--bg); color: #222;}
+    header {position: fixed; top: 0; left: 0; width: 100%; background: #fff; box-shadow: 0 2px 10px rgba(0,0,0,0.06); z-index: 1000; display: flex; align-items: center; justify-content: space-between; padding: 12px 5%;}
+    .logo {font-size: 1.4rem; font-weight: 800; color: var(--brand); letter-spacing: 1px; display:flex;gap:.6rem;align-items:center}
+    .logo span{font-size:1.2rem}
+    nav ul {list-style: none; display: flex; gap: 18px; align-items:center}
+    nav ul li a {text-decoration: none; color: #333; font-weight: 600; transition: color 0.2s;}
+    nav ul li a:hover {color: var(--brand);}
+    .hero {height: 85vh; background: linear-gradient(180deg, rgba(230,57,70,0.06), rgba(0,0,0,0.02)), url('https://images.unsplash.com/photo-1600891963935-cf34c5b5d2b8?ixlib=rb-4.0.3&auto=format&fit=crop&w=1500&q=80') center/cover no-repeat; display: flex; align-items: center; justify-content: center; text-align: center; color: #fff; padding: 0 20px;}
+    .hero-inner{background: rgba(0,0,0,0.45); padding: 40px;border-radius:14px;max-width:980px}
+    .hero h1 {font-size: clamp(1.6rem, 4vw, 2.6rem); line-height:1.2; margin-bottom:12px; color: #fff}
+    .subtitle{color: #e6e6e6; font-size:1rem; margin-bottom:18px}
+
+    /* Typewriter cursor */
+    .cursor{display:inline-block;margin-left:4px;opacity:1;animation:blink 1s steps(2,start) infinite;color:var(--brand);font-weight:700}
+    @keyframes blink{50%{opacity:0}}
+
+    /* Sections */
+    .menu-section {padding: 80px 5%; background: #fff; margin-top:20px}
+    .menu-section h2 {text-align: center; font-size: 2.2rem; margin-bottom: 24px; color: var(--brand);}
+    .menu-grid {display: grid; grid-template-columns: repeat(auto-fit, minmax(240px,1fr)); gap: 20px;}
+    .menu-item {background: var(--card); border-radius: 12px; overflow: hidden; box-shadow: 0 6px 20px rgba(0,0,0,0.06); transition: transform 0.25s; border:1px solid rgba(0,0,0,0.03)}
+    .menu-item:hover {transform: translateY(-6px)}
+    .menu-item img {width: 100%; height: 170px; object-fit: cover}
+    .menu-item .info {padding: 14px}
+    .menu-item .info h3 {font-size: 1.05rem; margin-bottom:6px}
+    .menu-item .info p {margin-bottom:8px; color: var(--muted)}
+    .menu-item .info .price {font-weight:800;color:var(--brand)}
+    .menu-item .info button {margin-top:10px;background:var(--brand);border:none;color:#fff;padding:9px 12px;border-radius:8px;cursor:pointer}
+
+    .about, .contact {padding: 60px 5%; text-align: center}
+    .about h2, .contact h2 {font-size: 1.6rem; margin-bottom:14px; color: var(--brand)}
+    footer {background: #111; color: #ddd; text-align: center; padding: 18px; margin-top: 30px}
+
+    /* Responsive tweaks */
+    @media (max-width:780px){header{padding:10px 4%} .hero{height:70vh}.hero-inner{padding:22px}}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo"><span>🍔</span> Smash & Go</div>
+    <nav>
+      <ul>
+        <li><a href="#menu">Menu</a></li>
+        <li><a href="#about">Sobre</a></li>
+        <li><a href="#contact">Contacto</a></li>
+        <li><a style="background:var(--brand);color:#fff;padding:8px 12px;border-radius:10px;text-decoration:none" href="https://wa.me/258841234567?text=Olá%20Smash%20%26%20Go!%20Quero%20fazer%20uma%20encomenda." target="_blank" rel="noopener">Pedir</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="hero" aria-label="Hero — Slogan">
+    <div class="hero-inner">
+      <h1 id="typewriter" aria-live="polite"></h1><span class="cursor" aria-hidden="true">|</span>
+      <p class="subtitle">Ingredientes frescos, pão artesanal e molhos da casa. Encomende pelo WhatsApp e levante sem filas.</p>
+    </div>
+  </section>
+
+  <section class="menu-section" id="menu">
+    <h2>Nosso Menu</h2>
+    <div class="menu-grid">
+      <div class="menu-item">
+        <img src="https://images.unsplash.com/photo-1550547660-d9450f859349?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Smash Clássico">
+        <div class="info">
+          <h3>Smash Clássico</h3>
+          <p>Carne 120g, queijo, picles e molho da casa.</p>
+          <div style="display:flex;justify-content:space-between;align-items:center"><span class="price">550 MT</span><button onclick="order('Smash Clássico')">Pedir no WhatsApp</button></div>
+        </div>
+      </div>
+
+      <div class="menu-item">
+        <img src="https://images.unsplash.com/photo-1544025162-d76694265947?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Cheeseburger Duplo">
+        <div class="info">
+          <h3>Cheese Duplo</h3>
+          <p>Dois discos, queijo duplo e cebola caramelizada.</p>
+          <div style="display:flex;justify-content:space-between;align-items:center"><span class="price">690 MT</span><button onclick="order('Cheese Duplo')">Pedir no WhatsApp</button></div>
+        </div>
+      </div>
+
+      <div class="menu-item">
+        <img src="https://images.unsplash.com/photo-1488477181946-6428a0291777?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Frango Grelhado">
+        <div class="info">
+          <h3>Prato de Frango Grelhado</h3>
+          <p>Peito grelhado, arroz de alho e salada fresca.</p>
+          <div style="display:flex;justify-content:space-between;align-items:center"><span class="price">740 MT</span><button onclick="order('Prato de Frango Grelhado')">Pedir no WhatsApp</button></div>
+        </div>
+      </div>
+
+      <div class="menu-item">
+        <img src="https://images.unsplash.com/photo-1603133872878-684f208fb84f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Bowl Energetico">
+        <div class="info">
+          <h3>Bowl Energia</h3>
+          <p>Quinoa, legumes grelhados e molho cítrico.</p>
+          <div style="display:flex;justify-content:space-between;align-items:center"><span class="price">620 MT</span><button onclick="order('Bowl Energia')">Pedir no WhatsApp</button></div>
+        </div>
+      </div>
+
+      <div class="menu-item">
+        <img src="https://images.unsplash.com/photo-1551024601-bec78aea704b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Limonada Fresca">
+        <div class="info">
+          <h3>Limonada Fresca</h3>
+          <p>Limão espremido, gelo e hortelã.</p>
+          <div style="display:flex;justify-content:space-between;align-items:center"><span class="price">180 MT</span><button onclick="order('Limonada Fresca')">Pedir no WhatsApp</button></div>
+        </div>
+      </div>
+
+      <div class="menu-item">
+        <img src="https://images.unsplash.com/photo-1587731665607-9207e3275d0a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Batido de Morango">
+        <div class="info">
+          <h3>Batido de Morango</h3>
+          <p>Feito com morangos frescos e leite gelado.</p>
+          <div style="display:flex;justify-content:space-between;align-items:center"><span class="price">250 MT</span><button onclick="order('Batido de Morango')">Pedir no WhatsApp</button></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="about" id="about">
+    <h2>Sobre Nós</h2>
+    <p>Somos apaixonados por smash burgers e refeições bem feitas. Ingredientes locais, pão artesanal e atendimento rápido para seu take away.</p>
+  </section>
+
+  <section class="contact" id="contact">
+    <h2>Contacto</h2>
+    <p><strong>WhatsApp:</strong> <a href="https://wa.me/258841234567" target="_blank" rel="noopener">+258 84 123 4567</a></p>
+    <p><strong>Endereço:</strong> Av. Exemplo, Maputo</p>
+    <p><strong>Horário:</strong> 10h – 22h (Seg – Dom)</p>
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3773.64734896557!2d32.5867!3d-25.9544!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1ee699bf4e6bdb9%3A0x4b2a6b3794f46f6f!2sAv.%20Julius%20Nyerere%2C%20Maputo!5e0!3m2!1spt!2smz!4v1691162193000!5m2!1spt!2smz" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+  </section>
+
+  <footer>
+    <p>&copy; <span id="year"></span> Smash & Go — Todos os direitos reservados</p>
+  </footer>
+
+  <script>
+    // Ano no rodapé
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Texto para typewriter
+    const text = "Hambúrgueres suculentos & refeições prontas para levar." +
+                 " Ingredientes frescos, pão artesanal e molhos da casa." +
+                 " Encomende pelo WhatsApp e levante sem filas.";
+    const el = document.getElementById('typewriter');
+    const cursor = document.querySelector('.cursor');
+    let idx = 0;
+    const speed = 30; // ms por caractere
+
+    function type() {
+      if (idx < text.length) {
+        el.textContent += text.charAt(idx);
+        idx++;
+        // small random delay to feel more 'máquina'
+        const jitter = Math.random() * 80;
+        setTimeout(type, speed + jitter);
+      } else {
+        // after typing, blink cursor faster a little then stop after loop
+        cursor.style.animation = 'blink 0.6s steps(2,start) infinite';
+      }
+    }
+    // Start typing when DOM is ready
+    document.addEventListener('DOMContentLoaded', () => {
+      // small delay so user sees header then typing starts
+      setTimeout(type, 600);
+    });
+
+    // Função de pedido para WhatsApp
+    function order(item) {
+      let phone = '258841234567';
+      let message = encodeURIComponent(`Olá! Gostaria de pedir: ${item}`);
+      window.open(`https://wa.me/${phone}?text=${message}`, '_blank');
+    }
+  </script>
+</body>
+</html>
